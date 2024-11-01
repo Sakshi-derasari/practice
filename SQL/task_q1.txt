@@ -1,0 +1,335 @@
+Enter password: **********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.39 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| customer1_2        |
+| customer_1         |
+| information_schema |
+| mysql              |
+| performance_schema |
+| student_marks      |
+| sys                |
++--------------------+
+7 rows in set (0.48 sec)
+
+mysql> use student_marks;
+Database changed
+mysql> create table student;
+ERROR 4028 (HY000): A table must have at least one visible column.
+mysql> create table student (Rollno int primary key, Name(VARCHAR(50), Branch VARCHAR(50));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(VARCHAR(50), Branch VARCHAR(50))' at line 1
+mysql> create table student (Rollno int primary key, Name VARCHAR(50), Branch VARCHAR(50));
+ERROR 1050 (42S01): Table 'student' already exists
+mysql> create table student_1 (Rollno int primary key, Name VARCHAR(50), Branch VARCHAR(50));
+Query OK, 0 rows affected (0.54 sec)
+
+mysql> describe student_1;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| Rollno | int         | NO   | PRI | NULL    |       |
+| Name   | varchar(50) | YES  |     | NULL    |       |
+| Branch | varchar(50) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.35 sec)
+
+mysql> insert into student_1 values(1,"Jay","Computer Science"),(2,"Suhani","Electronic and Com"),(3,
+    -> \c
+mysql> insert into student_1 values(1,"Jay","Computer Science"),(2,"Suhani","Electronic and Com"),(3,"Kriti","Elctronic and Com");
+Query OK, 3 rows affected (0.27 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from student_1;
++--------+--------+--------------------+
+| Rollno | Name   | Branch             |
++--------+--------+--------------------+
+|      1 | Jay    | Computer Science   |
+|      2 | Suhani | Electronic and Com |
+|      3 | Kriti  | Elctronic and Com  |
++--------+--------+--------------------+
+3 rows in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+Enter password: **********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 8.0.39 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| customer1_2        |
+| customer_1         |
+| information_schema |
+| mysql              |
+| performance_schema |
+| student_marks      |
+| sys                |
++--------------------+
+7 rows in set (0.18 sec)
+
+mysql> use customer1_2
+Database changed
+mysql> show tables;
+Empty set (1.34 sec)
+
+mysql> use customer_1;
+Database changed
+mysql> show tables;
++----------------------+
+| Tables_in_customer_1 |
++----------------------+
+| customer             |
+| payment              |
+| student              |
++----------------------+
+3 rows in set (0.03 sec)
+
+mysql> create database cutomer_12;
+Query OK, 1 row affected (0.34 sec)
+
+mysql> use customer_12;
+ERROR 1049 (42000): Unknown database 'customer_12'
+mysql> use cutomer_12;
+Database changed
+mysql> create table student(rollno int, name varchar(20), city varchar(20));
+Query OK, 0 rows affected (1.79 sec)
+
+mysql> describe cutomer_12;
+ERROR 1146 (42S02): Table 'cutomer_12.cutomer_12' doesn't exist
+mysql> describe student;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| rollno | int         | YES  |     | NULL    |       |
+| name   | varchar(20) | YES  |     | NULL    |       |
+| city   | varchar(20) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> insert into student values(1,"riya","surat"),(2,"sakshi","baroda"),(3,"nisha","vapi");
+Query OK, 3 rows affected (0.17 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> describe student;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| rollno | int         | YES  |     | NULL    |       |
+| name   | varchar(20) | YES  |     | NULL    |       |
+| city   | varchar(20) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> select * from student;
++--------+--------+--------+
+| rollno | name   | city   |
++--------+--------+--------+
+|      1 | riya   | surat  |
+|      2 | sakshi | baroda |
+|      3 | nisha  | vapi   |
++--------+--------+--------+
+3 rows in set (0.00 sec)
+
+mysql> insert into student values(1,"riya","surat"),(2,"sakshi","baroda"),(3,"nisha","vapi"),(4,"brijal","valsad"),(5,"megha","pune");
+Query OK, 5 rows affected (0.12 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * form student;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'form student' at line 1
+mysql> select * from student;
++--------+--------+--------+
+| rollno | name   | city   |
++--------+--------+--------+
+|      1 | riya   | surat  |
+|      2 | sakshi | baroda |
+|      3 | nisha  | vapi   |
+|      1 | riya   | surat  |
+|      2 | sakshi | baroda |
+|      3 | nisha  | vapi   |
+|      4 | brijal | valsad |
+|      5 | megha  | pune   |
++--------+--------+--------+
+8 rows in set (0.00 sec)
+
+mysql> delete from student where name=riya,name=sakshi,name=nisha;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',name=sakshi,name=nisha' at line 1
+mysql> delete from student where name=riya;
+ERROR 1054 (42S22): Unknown column 'riya' in 'where clause'
+mysql> delete from student where name="riya";
+Query OK, 2 rows affected (0.15 sec)
+
+mysql> delete from student where name="sakshi",name-"nisha";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',name-"nisha"' at line 1
+mysql> delete from student where name="sakshi";
+Query OK, 2 rows affected (0.18 sec)
+
+mysql> delete from student where name="nisha";
+Query OK, 2 rows affected (0.05 sec)
+
+mysql> select * from student;
++--------+--------+--------+
+| rollno | name   | city   |
++--------+--------+--------+
+|      4 | brijal | valsad |
+|      5 | megha  | pune   |
++--------+--------+--------+
+2 rows in set (0.00 sec)
+
+mysql> insert into stduent values(1,"sakshi","surat"),(2,"nisha","vapi");
+ERROR 1146 (42S02): Table 'cutomer_12.stduent' doesn't exist
+mysql> insert into student values(1,"riya","surat"),(2,"sakshi","baroda"),(3,"nisha","vapi");
+Query OK, 3 rows affected (0.09 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++--------+--------+--------+
+| rollno | name   | city   |
++--------+--------+--------+
+|      4 | brijal | valsad |
+|      5 | megha  | pune   |
+|      1 | riya   | surat  |
+|      2 | sakshi | baroda |
+|      3 | nisha  | vapi   |
++--------+--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> describe student;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| rollno | int         | YES  |     | NULL    |       |
+| name   | varchar(20) | YES  |     | NULL    |       |
+| city   | varchar(20) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> select * from student;
++--------+--------+--------+
+| rollno | name   | city   |
++--------+--------+--------+
+|      4 | brijal | valsad |
+|      5 | megha  | pune   |
+|      1 | riya   | surat  |
+|      2 | sakshi | baroda |
+|      3 | nisha  | vapi   |
++--------+--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> create table exam(marks int, subject varchar(20), grade varchar(20));
+Query OK, 0 rows affected (0.54 sec)
+
+mysql> describe exam;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| marks   | int         | YES  |     | NULL    |       |
+| subject | varchar(20) | YES  |     | NULL    |       |
+| grade   | varchar(20) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> insert into exam values(60,"math","b"),(80,"hindi","a"),(90,"english","a++");
+Query OK, 3 rows affected (0.18 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from exam;
++-------+---------+-------+
+| marks | subject | grade |
++-------+---------+-------+
+|    60 | math    | b     |
+|    80 | hindi   | a     |
+|    90 | english | a++   |
++-------+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+    -> FROM Orders
+    -> INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+ERROR 1146 (42S02): Table 'cutomer_12.orders' doesn't exist
+mysql> SELECT student.rollno, exam.marks, student.name from student;
+ERROR 1054 (42S22): Unknown column 'exam.marks' in 'field list'
+mysql> SELECT student.rollno, exam.marks, student.name
+    -> from student
+    -> inner join exam ON student.rollno=exam.marks;
+Empty set (0.00 sec)
+
+mysql> SELECT student.rollno, exam.subject, student.city;
+ERROR 1109 (42S02): Unknown table 'student' in field list
+mysql> SELECT student.rollno, exam.subject, student.city
+    -> from student;
+ERROR 1054 (42S22): Unknown column 'exam.subject' in 'field list'
+mysql> SELECT student.rollno, exam.subject, student.city;
+ERROR 1109 (42S02): Unknown table 'student' in field list
+mysql>
+
+
+mysql> select * from student;
++--------+--------+--------+
+| rollno | name   | city   |
++--------+--------+--------+
+|      4 | brijal | valsad |
+|      5 | megha  | pune   |
+|      1 | riya   | surat  |
+|      2 | sakshi | baroda |
+|      3 | nisha  | vapi   |
++--------+--------+--------+
+
+mysql> select * from exam;
++-------+---------+-------+
+| marks | subject | grade |
++-------+---------+-------+
+|    60 | math    | b     |
+|    80 | hindi   | a     |
+|    90 | english | a++   |
++-------+---------+-------+
+
+use cutomer_12;
+alter table student add column standard int;
+describe student;
+update student set standard=8 where rollno=5;
+describe student;
+select * from student;
+alter table exam add column standard int;
+update exam set standard=12 where marks=90;
+select * from exam; 
+alter table exam drop column excity;
+describe exam;
+select * from exam;
+SELECT student.standard, exam.subject
+FROM student
+INNER JOIN exam
+ON student.standard = exam.standard;
+
+ineer join syntex : 
+SELECT column_name(s)
+FROM table1
+INNER JOIN table2
+ON table1.column_name = table2.column_name;
